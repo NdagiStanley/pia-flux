@@ -99,14 +99,17 @@ const balance = computed(() => {
 })
 
 // add entry
-const addEntryForm = reactive({
+const addEntryFormDefault = {
   name: '',
   amount: null
+}
+
+const addEntryForm = reactive({
+  ...addEntryFormDefault
 })
 
 const addEntryFormReset = () => {
-  addEntryForm.name = ''
-  addEntryForm.amount = null
+  Object.assign(addEntryForm, addEntryFormDefault)
 }
 
 const addEntry = () => {
