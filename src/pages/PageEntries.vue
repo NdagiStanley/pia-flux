@@ -5,27 +5,63 @@
         bordered
         separator
       >
-        <q-item
+        <q-slide-item
+          @right="onEntrySlideRight"
           v-for="entry in entries"
           :key="entry.id"
+          right-color="negative"
         >
-          <q-item-section
-            :class="useAmountColorClass(entry.amount)"
-            class="text-weight-bold"
-          >
-            {{ entry.name }}
-          </q-item-section>
+          <template v-slot:right>
+            <q-icon name="delete" />
+          </template>
+          <q-item>
+            <q-item-section
+              :class="useAmountColorClass(entry.amount)"
+              class="text-weight-bold"
+            >
+              {{ entry.name }}
+            </q-item-section>
 
-          <q-item-section
-            :class="useAmountColorClass(entry.amount)"
-            class="text-weight-bold mono-font"
-            side
-          >
-            {{ useCurrencify(entry.amount) }}
-          </q-item-section>
-        </q-item>
+            <q-item-section
+              :class="useAmountColorClass(entry.amount)"
+              class="text-weight-bold mono-font"
+              side
+            >
+              {{ useCurrencify(entry.amount) }}
+            </q-item-section>
+          </q-item>
+        </q-slide-item>
       </q-list>
     </div>
+
+    <q-dialog
+      v-model="confirm"
+      persistent
+    >
+      <q-card>
+        <q-card-section class="row items-center">
+          <div class="text-h6">Delete</div>
+        </q-card-section>
+        <q-card-section class="q-pt-none">Delete Entry?</q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn
+            flat
+            label="OK"
+            v-close-popup
+            @click="confirm = false"
+          />
+          <q-btn
+            flat
+            label="Delete"
+            color="negative"
+            v-close-popup
+            @click="deleteEntry"
+          />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
     <q-footer class="bg-transparent">
       <div class="row q-px-md q-py-sm q-mb-sm shadow-up-3">
         <div class="col text-grey-7 text-h6">Balance:</div>
@@ -42,10 +78,12 @@
       >
         <div class="col">
           <q-input
+            ref="nameInputRef"
             v-model="addEntryForm.name"
             bg-color="white"
             outlined
             dense
+            autofocus
             input-class="text-grey-7"
             placeholder="Name"
           />
@@ -99,6 +137,8 @@ const balance = computed(() => {
 })
 
 // add entry
+const nameInputRef = ref(null)
+
 const addEntryFormDefault = {
   name: '',
   amount: null
@@ -110,11 +150,24 @@ const addEntryForm = reactive({
 
 const addEntryFormReset = () => {
   Object.assign(addEntryForm, addEntryFormDefault)
+  nameInputRef.value.focus()
 }
 
 const addEntry = () => {
   const newEntry = Object.assign({}, addEntryForm, { id: uid() })
   entries.value.push(newEntry)
   addEntryFormReset()
+}
+
+// delete
+const confirm = ref(false)
+const onEntrySlideRight = ({ reset }) => {
+  confirm.value = true
+  reset()
+}
+
+const deleteEntry = () => {
+  // entries.value = entries.value.filter(entry => entry.id!== confirm.value.id)
+  confirm.value = false
 }
 </script>
