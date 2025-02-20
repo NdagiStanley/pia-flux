@@ -104,12 +104,14 @@ const addEntryForm = reactive({
   amount: null
 })
 
+const addEntryFormReset = () => {
+  addEntryForm.name = ''
+  addEntryForm.amount = null
+}
+
 const addEntry = () => {
-  const newEntry = {
-    id: uid(),
-    name: addEntryForm.name,
-    amount: addEntryForm.amount
-  }
+  const newEntry = Object.assign({}, addEntryForm, { id: uid() })
   entries.value.push(newEntry)
+  addEntryFormReset()
 }
 </script>
