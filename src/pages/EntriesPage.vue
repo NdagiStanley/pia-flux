@@ -34,16 +34,19 @@
       <div class="row q-px-sm q-pb-sm q-col-gutter-sm bg-primary">
         <div class="col">
           <q-input
+            bg-color="white"
             outlined
             dense
+            input-class="text-grey-7"
             placeholder="Name"
           />
         </div>
         <div class="col">
           <q-input
+            bg-color="white"
             outlined
             dense
-            input-class="text-right"
+            input-class="text-right mono-font text-grey-7"
             type="number"
             step="0.01"
             placeholder="Amount"
