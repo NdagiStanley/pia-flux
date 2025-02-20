@@ -7,3 +7,13 @@
     }
   }
 }
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(./fonts/JetBrainsMono-Regular.woff2);
+}
+
+// declare a class which applies it
+.mono-font {
+  font-family: 'JetBrains Mono';
+}

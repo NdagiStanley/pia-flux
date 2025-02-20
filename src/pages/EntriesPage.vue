@@ -18,7 +18,7 @@
 
           <q-item-section
             :class="useAmountColorClass(entry.amount)"
-            class="text-weight-bold"
+            class="text-weight-bold mono-font"
             side
           >
             {{ useCurrencify(entry.amount) }}
