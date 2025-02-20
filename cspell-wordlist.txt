@@ -1,0 +1,7 @@
+fontawesome
+intlify
+Ndagi
+quasarframework
+themify
+unplugin
+wordlist
