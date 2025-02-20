@@ -82,15 +82,12 @@ const entries = ref([
   { id: 'id2', name: 'Salary', amount: -9999.0 },
   { id: 'id3', name: 'Salary', amount: 9999.0 },
   { id: 'id4', name: 'Salary', amount: -9999.0 },
-  { id: 'id5', name: 'Salary', amount: 9999.0 },
+  { id: 'id5', name: 'Salary', amount: -9999.0 },
   { id: 'id5', name: 'Salary', amount: 0.0 }
 ])
 
 // balance
 const balance = computed(() => {
-  // return entries.value.reduce((acc, entry) => acc + entry.amount, 0)
-  let balance = 0
-  entries.value.forEach((entry) => (balance += entry.amount))
-  return balance
+  return entries.value.reduce((accumulator, { amount }) => accumulator + amount, 0)
 })
 </script>
