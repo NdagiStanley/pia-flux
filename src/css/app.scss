@@ -17,3 +17,10 @@
 .mono-font {
   font-family: 'JetBrains Mono';
 }
+
+// Number inputs
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin-left: 10px;
+}

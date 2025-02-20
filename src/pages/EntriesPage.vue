@@ -26,6 +26,36 @@
         </q-item>
       </q-list>
     </div>
+    <q-footer>
+      <div class="row q-pa-sm q-col-gutter-sm">
+        <div class="col">
+          <q-input
+            bg-color="white"
+            outlined
+            dense
+            placeholder="Name"
+          />
+        </div>
+        <div class="col">
+          <q-input
+            bg-color="white"
+            outlined
+            dense
+            input-class="text-right"
+            type="number"
+            step="0.01"
+            placeholder="Amount"
+          />
+        </div>
+        <div class="col col-auto">
+          <q-btn
+            round
+            color="secondary"
+            icon="add"
+          />
+        </div>
+      </div>
+    </q-footer>
   </q-page>
 </template>
 
