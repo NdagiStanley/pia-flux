@@ -9,9 +9,18 @@
           v-for="entry in entries"
           :key="entry.id"
         >
-          <q-item-section> {{ entry.name }} </q-item-section>
+          <q-item-section
+            :class="[{ 'text-positive': entry.amount > 0 }, { 'text-negative': entry.amount < 0 }]"
+          >
+            {{ entry.name }}
+          </q-item-section>
 
-          <q-item-section side> {{ useCurrencify(entry.amount) }} </q-item-section>
+          <q-item-section
+            :class="[{ 'text-positive': entry.amount > 0 }, { 'text-negative': entry.amount < 0 }]"
+            side
+          >
+            {{ useCurrencify(entry.amount) }}
+          </q-item-section>
         </q-item>
       </q-list>
     </div>
