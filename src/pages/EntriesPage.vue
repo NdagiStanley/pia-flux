@@ -29,7 +29,9 @@
     <q-footer class="bg-transparent">
       <div class="row q-px-md q-py-sm q-mb-sm shadow-up-3">
         <div class="col text-grey-7 text-h6">Balance:</div>
-        <div class="col text-grey-7 text-h6 text-right mono-font">+ $ 5000.00</div>
+        <div class="col text-grey-7 text-h6 text-right mono-font">
+          {{ useCurrencify(balance) }}
+        </div>
       </div>
       <div class="row q-px-sm q-pb-sm q-col-gutter-sm bg-primary">
         <div class="col">
@@ -67,7 +69,7 @@
 <script setup>
 // imports
 
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useCurrencify } from 'src/use/useCurrencify'
 import { useAmountColorClass } from 'src/use/useAmountColorClass'
 
@@ -80,4 +82,12 @@ const entries = ref([
   { id: 'id5', name: 'Salary', amount: 9999.0 },
   { id: 'id5', name: 'Salary', amount: 0.0 }
 ])
+
+// balance
+const balance = computed(() => {
+  // return entries.value.reduce((acc, entry) => acc + entry.amount, 0)
+  let balance = 0
+  entries.value.forEach((entry) => (balance += entry.amount))
+  return balance
+})
 </script>
