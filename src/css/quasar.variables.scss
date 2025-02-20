@@ -12,14 +12,48 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
-$primary   : #1976D2;
-$secondary : #26A69A;
-$accent    : #9C27B0;
+// Primary Colors
+$primary: #1e40af !default; // Deep Blue (Trust, Intelligence) - Improved contrast
+$secondary: #b38600 !default; // Darkened Gold (Innovation, High Value)
+$accent: #8c8c8c !default; // Darkened Silver (Tech, Accessibility)
 
-$dark      : #1D1D1D;
-$dark-page : #121212;
+// Background Colors
+$dark: #121212 !default; // Dark Mode Background
+$dark-page: #121212;
+$light: #f8f9fa !default; // Light Mode Background
 
-$positive  : #21BA45;
-$negative  : #C10015;
-$info      : #31CCEC;
-$warning   : #F2C037;
+// Functional Colors
+$positive: #7eb004 !default; // Light Green (Growth, Positive States)
+$negative: #d73f01 !default; // Light Red (Errors, Warnings)
+$info: #0284c7 !default; // Darker Bright Blue (Insights)
+$warning: #d97706 !default; // Darkened Soft Gold (Alerts)
+
+// Text Colors for Readability
+$text-dark: #333333 !default; // For Light Mode
+$text-light: #e5e5e5 !default; // For Dark Mode
+
+// Shadows & Borders
+$shadow-dark: rgba(255, 255, 255, 0.1) !default;
+$shadow-light: rgba(0, 0, 0, 0.1) !default;
+$border-light: rgba(0, 0, 0, 0.15) !default;
+$border-dark: rgba(255, 255, 255, 0.15) !default;
+
+// Gradient Backgrounds
+$gradient-light: linear-gradient(90deg, #f8f9fa 0%, #e5e7eb 100%) !default;
+$gradient-dark: linear-gradient(90deg, #121212 0%, #1e293b 100%) !default;
+
+// Default Quasar Dark Mode Setup
+$dark-mode: (
+  'bg': $dark,
+  'text': $text-light,
+  'shadow': $shadow-dark,
+  'border': $border-dark
+) !default;
+
+// Default Quasar Light Mode Setup
+$light-mode: (
+  'bg': $light,
+  'text': $text-dark,
+  'shadow': $shadow-light,
+  'border': $border-light
+) !default;
