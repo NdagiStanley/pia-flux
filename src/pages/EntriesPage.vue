@@ -29,7 +29,10 @@
     <q-footer class="bg-transparent">
       <div class="row q-px-md q-py-sm q-mb-sm shadow-up-3">
         <div class="col text-grey-7 text-h6">Balance:</div>
-        <div class="col text-grey-7 text-h6 text-right mono-font">
+        <div
+          class="col text-h6 text-right mono-font"
+          :class="useAmountColorClass(balance)"
+        >
           {{ useCurrencify(balance) }}
         </div>
       </div>
