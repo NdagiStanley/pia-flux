@@ -26,11 +26,14 @@
         </q-item>
       </q-list>
     </div>
-    <q-footer>
-      <div class="row q-pa-sm q-col-gutter-sm">
+    <q-footer class="bg-transparent">
+      <div class="row q-px-md q-py-sm q-mb-sm shadow-up-3">
+        <div class="col text-grey-7 text-h6">Balance:</div>
+        <div class="col text-grey-7 text-h6 text-right mono-font">+ $ 5000.00</div>
+      </div>
+      <div class="row q-px-sm q-pb-sm q-col-gutter-sm bg-primary">
         <div class="col">
           <q-input
-            bg-color="white"
             outlined
             dense
             placeholder="Name"
@@ -38,7 +41,6 @@
         </div>
         <div class="col">
           <q-input
-            bg-color="white"
             outlined
             dense
             input-class="text-right"
