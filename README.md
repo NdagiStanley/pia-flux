@@ -36,7 +36,9 @@ quasar build
 
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
-## Structure
+## Notes from course
+
+### Structure
 
 - public - served as is
 - src - main work done here
@@ -45,7 +47,7 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
   - stores - pinia store folder
   - App.Vue - config in this as soon as the app starts
 
----
+### Props
 
 ```vue
 <q-icon name="hexagon" />
@@ -64,36 +66,38 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
   :width="250"
   :breakpoint="767"
 >
+</q-drawer>
 ```
 
 `width` prop
 `breakpoint` prop
 
----
+### Attributes
 
 ```html
-<div v-for="item in items" :key="item.id">
+<div
+  v-for="item in items"
+  :key="item.id"
+>
   <!-- content -->
 </div>
 ```
 
 `key` attribute <https://vuejs.org/guide/essentials/list#maintaining-state-with-key>
 
----
-
-Typography
+### Typography
 
 ```vue
 class="text-right"
 ```
 
----
+### JavaScript
 
 ```js
 return entries.value.reduce((accumulator, { amount }) => {
-    console.log('accumulator', accumulator)
-    console.log('entry.amount', amount)
-  }, 0)
+  console.log('accumulator', accumulator)
+  console.log('entry.amount', amount)
+}, 0)
 ```
 
 VS
