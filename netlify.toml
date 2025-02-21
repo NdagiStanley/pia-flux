@@ -1,0 +1,3 @@
+[build]
+  command = "pnpm netlify"
+  publish = "dist/spa"

@@ -12,7 +12,8 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
-    "postinstall": "quasar prepare"
+    "postinstall": "quasar prepare",
+    "netlify": "quasar build && echo '/*    /index.html   200\n/*    /index.html   404' >> ./dist/spa/_redirects"
   },
   "dependencies": {
     "axios": "^1.2.1",
