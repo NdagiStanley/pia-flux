@@ -6,7 +6,7 @@
         separator
       >
         <q-slide-item
-          @right="onEntrySlideRight"
+          @right="onEntrySlideRight($event, entry)"
           v-for="entry in entries"
           :key="entry.id"
           right-color="negative"
@@ -33,34 +33,6 @@
         </q-slide-item>
       </q-list>
     </div>
-
-    <q-dialog
-      v-model="confirm"
-      persistent
-    >
-      <q-card>
-        <q-card-section class="row items-center">
-          <div class="text-h6">Delete</div>
-        </q-card-section>
-        <q-card-section class="q-pt-none">Delete Entry?</q-card-section>
-
-        <q-card-actions align="right">
-          <q-btn
-            flat
-            label="OK"
-            v-close-popup
-            @click="confirm = false"
-          />
-          <q-btn
-            flat
-            label="Delete"
-            color="negative"
-            v-close-popup
-            @click="deleteEntry"
-          />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
 
     <q-footer class="bg-transparent">
       <div class="row q-px-md q-py-sm q-mb-sm shadow-up-3">
@@ -117,9 +89,11 @@
 // imports
 
 import { ref, computed, reactive } from 'vue'
-import { uid } from 'quasar'
+import { uid, useQuasar } from 'quasar'
 import { useCurrencify } from 'src/use/useCurrencify'
 import { useAmountColorClass } from 'src/use/useAmountColorClass'
+
+const $q = useQuasar()
 
 // entries
 const entries = ref([
@@ -128,7 +102,7 @@ const entries = ref([
   { id: 'id3', name: 'Salary', amount: 9999.0 },
   { id: 'id4', name: 'Salary', amount: -9999.0 },
   { id: 'id5', name: 'Salary', amount: -9999.0 },
-  { id: 'id5', name: 'Salary', amount: 0.0 }
+  { id: 'id6', name: 'Salary', amount: 0.0 }
 ])
 
 // balance
@@ -160,14 +134,30 @@ const addEntry = () => {
 }
 
 // delete
-const confirm = ref(false)
-const onEntrySlideRight = ({ reset }) => {
-  confirm.value = true
-  reset()
+const onEntrySlideRight = ({ reset }, entry) => {
+  $q.dialog({
+    title: 'Delete Entry',
+    message: `Are you sure you want to delete "${entry.name}" entry?`,
+    cancel: true,
+    persistent: true,
+    ok: {
+      label: 'Delete',
+      color: 'negative'
+      // handler: () => {
+      //   entries.value = entries.value.filter((entry) => entry.id !== confirm.value.id)
+      // }
+    }
+  })
+    .onOk(() => {
+      deleteEntry(entry.id)
+    })
+    .onDismiss(() => {
+      reset()
+    })
 }
 
-const deleteEntry = () => {
-  // entries.value = entries.value.filter(entry => entry.id!== confirm.value.id)
-  confirm.value = false
+const deleteEntry = (entryId) => {
+  const index = entries.value.findIndex((entry) => entry.id == entryId)
+  entries.value.splice(index, 1)
 }
 </script>
