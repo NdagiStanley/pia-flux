@@ -98,11 +98,11 @@ const $q = useQuasar()
 // entries
 const entries = ref([
   { id: 'id1', name: 'Salary', amount: 9999.0 },
-  { id: 'id2', name: 'Salary', amount: -9999.0 },
-  { id: 'id3', name: 'Salary', amount: 9999.0 },
-  { id: 'id4', name: 'Salary', amount: -9999.0 },
-  { id: 'id5', name: 'Salary', amount: -9999.0 },
-  { id: 'id6', name: 'Salary', amount: 0.0 }
+  { id: 'id2', name: 'Expense', amount: -9999.0 },
+  { id: 'id3', name: 'SalaryA', amount: 9999.0 },
+  { id: 'id4', name: 'ExpenseA', amount: -9999.0 },
+  { id: 'id5', name: 'ExpenseB', amount: -9999.0 },
+  { id: 'id6', name: 'Other', amount: 0.0 }
 ])
 
 // balance
@@ -137,9 +137,15 @@ const addEntry = () => {
 const onEntrySlideRight = ({ reset }, entry) => {
   $q.dialog({
     title: 'Delete Entry',
-    message: `Are you sure you want to delete "${entry.name}" entry?`,
+    message: `
+      Are you sure you want to delete this entry?
+      <div class="q-mt-md text-weight-bold ${useAmountColorClass(entry.amount)}">
+        ${entry.name} : ${useCurrencify(entry.amount)}
+      </div>
+      `,
     cancel: true,
     persistent: true,
+    html: true,
     ok: {
       label: 'Delete',
       color: 'negative'
@@ -149,15 +155,23 @@ const onEntrySlideRight = ({ reset }, entry) => {
     }
   })
     .onOk(() => {
-      deleteEntry(entry.id)
+      deleteEntry(entry)
     })
     .onDismiss(() => {
       reset()
     })
 }
 
-const deleteEntry = (entryId) => {
-  const index = entries.value.findIndex((entry) => entry.id == entryId)
+const deleteEntry = (entry) => {
+  const index = entries.value.findIndex((entry) => entry.id == entry.id)
   entries.value.splice(index, 1)
+  $q.notify({
+    message: `Deleted entry - ${entry.name}`,
+    icon: 'delete',
+    timeout: 1500,
+    color: 'accent',
+    position: 'top',
+    html: true
+  })
 }
 </script>
