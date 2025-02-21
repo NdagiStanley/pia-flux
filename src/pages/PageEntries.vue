@@ -149,9 +149,6 @@ const onEntrySlideRight = ({ reset }, entry) => {
     ok: {
       label: 'Delete',
       color: 'negative'
-      // handler: () => {
-      //   entries.value = entries.value.filter((entry) => entry.id !== confirm.value.id)
-      // }
     }
   })
     .onOk(() => {
@@ -162,11 +159,11 @@ const onEntrySlideRight = ({ reset }, entry) => {
     })
 }
 
-const deleteEntry = (entry) => {
-  const index = entries.value.findIndex((entry) => entry.id == entry.id)
+const deleteEntry = (entryObjToBeDeleted) => {
+  const index = entries.value.findIndex((entry) => entry.id == entryObjToBeDeleted.id)
   entries.value.splice(index, 1)
   $q.notify({
-    message: `Deleted entry - ${entry.name}`,
+    message: `Deleted entry - ${entryObjToBeDeleted.name}`,
     icon: 'delete',
     timeout: 1500,
     color: 'accent',
