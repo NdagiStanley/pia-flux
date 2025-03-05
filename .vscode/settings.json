@@ -7,5 +7,7 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "netlify.site_id": "piaflux",
+  "netlify.api_token": ""
 }
