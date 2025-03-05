@@ -8,6 +8,6 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "netlify.site_id": "piaflux",
+  "netlify.site_id": "piaflux.netlify.app",
   "netlify.api_token": ""
 }
