@@ -126,6 +126,8 @@ Use <https://realfavicongenerator.net> to generate icons. There's also a CLI com
 npx realfavicon check <port | URL>
 ```
 
+[Report](https://realfavicongenerator.net/favicon-checker/reports/d4266c98-05af-47ec-826b-59caa6b1f531)
+
 ---
 
 ## Credits
