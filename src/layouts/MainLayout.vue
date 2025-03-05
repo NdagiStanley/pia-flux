@@ -13,7 +13,7 @@
 
         <q-toolbar-title>
           <div class="absolute-center">
-            <q-icon name="hexagon" />
+            <q-icon name="img:icons/favicon-light.svg" />
             Pia Flux
           </div>
         </q-toolbar-title>
