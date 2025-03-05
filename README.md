@@ -1,6 +1,9 @@
-# Quasar App (pia-flux)
+# Pia Flux
 
-A Quasar Project
+Landing page: <https://piaflux.notion.site>
+Site: <https://pf.md.bio>
+
+This is a multi-platform project built with Quasar.
 
 ## Install the dependencies
 
@@ -36,7 +39,13 @@ quasar build
 
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
-## Notes from course
+---
+
+## Extra
+
+This project is inspired by Danny Connell's of Make Apps Academy, project: Moneyballs. The objective is to start off from the course then expand it to a usable open source app.
+
+## Notes as I go along
 
 ### Structure
 
@@ -109,4 +118,19 @@ return entries.value.reduce((accumulator, { amount }) => accumulator + amount, 0
 Firstly, `entries.value` is an object hence the `{ amount }` which deconstructs it.
 `() => {}` is reduced to `() => ...`
 
+### Favicons
+
+Use <realfavicongenerator.net> to generate icons. There's also a CLI command to check whether everything is OK.
+
+```sh
+npx realfavicon check <port | URL>
+```
+
 ---
+
+## Credits
+
+- Danny Connell's, of Make Apps Academy, project: Moneyballs
+- Brand Assets: Icons on Notion. Read more at:
+  - <https://piaflux.notion.site/pia-flux-cube>
+  - <https://github.com/NdagiStanley/loading-gif-creator#credits>
