@@ -63,6 +63,21 @@ const navList = [
     title: 'Settings',
     icon: 'settings',
     link: '/settings'
+  },
+  {
+    title: 'About',
+    icon: 'info',
+    href: 'https://piaflux.notion.site/'
+  },
+  {
+    title: 'Help',
+    icon: 'help',
+    href: 'https://github.com/NdagiStanley/pia-flux/issues'
+  },
+  {
+    title: 'Code',
+    icon: 'code',
+    href: 'https://github.com/NdagiStanley/pia-flux'
   }
 ]
 
