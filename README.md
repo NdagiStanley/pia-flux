@@ -120,7 +120,7 @@ Firstly, `entries.value` is an object hence the `{ amount }` which deconstructs 
 
 ### Favicons
 
-Use <realfavicongenerator.net> to generate icons. There's also a CLI command to check whether everything is OK.
+Use <https://realfavicongenerator.net> to generate icons. There's also a CLI command to check whether everything is OK.
 
 ```sh
 npx realfavicon check <port | URL>

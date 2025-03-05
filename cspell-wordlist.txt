@@ -1,7 +1,10 @@
+Connell's
 fontawesome
 intlify
+Moneyballs
 Ndagi
 quasarframework
+realfavicongenerator
 themify
 unplugin
 wordlist
