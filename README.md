@@ -43,7 +43,7 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 
 ## Extra
 
-This project is inspired by Danny Connell's of Make Apps Academy, project: Moneyballs. The objective is to start off from the course then expand it to a usable open source app.
+This project is inspired by Danny Connell's of Make Apps Academy, project: Moneyballs. The objective is to start off from the course then expand it to a usable open source app. It is hosted on Netlify.
 
 ## Notes as I go along
 
