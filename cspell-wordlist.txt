@@ -1,4 +1,5 @@
 Connell's
+Currencify
 fontawesome
 intlify
 Moneyballs
