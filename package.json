@@ -33,7 +33,7 @@
     "vite-plugin-checker": "^0.8.0",
     "@vue/eslint-config-prettier": "^10.1.0",
     "prettier": "^3.3.3",
-    "@quasar/app-vite": "^2.1.0",
+    "@quasar/app-vite": "^3.0.0",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.14"
   },
